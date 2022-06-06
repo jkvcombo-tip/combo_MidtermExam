@@ -1,0 +1,73 @@
+---
+
+
+
+# Install and Configure Elastic Stack (Elasticsearch, Kibana and Logstash) on Ubuntu
+- hosts: all
+  tasks:
+    - name: Install and Configure Elasticsearch on Ubuntu
+      include_role:  
+        name: Elasticsearch
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+      
+- hosts: all
+  tasks:
+    - name: Install and Configure Kibana on Ubuntu
+      include_role:  
+        name: Kibana
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+      
+- hosts: all
+  tasks:
+    - name: Install and Configure Logstash on Ubuntu
+      include_role:  
+        name: Logstash
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+      
+# Install Nagios
+- hosts: all
+  tasks:
+    - name: Install and Configure Nagios on Ubuntu
+      include_role:
+        name: Nagios
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+      
+# Install Grafana
+- hosts: all
+  tasks:
+    - name: Install and Configure Grafana on Ubuntu
+      include_role:
+        name: Grafana
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+      
+# Install Prometheus
+- hosts: all
+  tasks:
+    - name: Install and Configure Prometheus on Ubuntu
+      include_role:
+        name: Prometheus
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+      
+# Install Influxdb
+- hosts: all
+  tasks:
+    - name: Install and Configure InfluxDB on Ubuntu
+      include_role:
+        name: Influxdb
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+      
+# Install Httpd and PHP
+- hosts: all
+  tasks:
+    - name: Install Apache2 and PHP on Ubuntu
+      include_role:
+        name: Apache2_php
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+      
+# Install Mariadb
+- hosts: all
+  tasks:
+    - name: Install MariaDB on Ubuntu
+      include_role:
+        name: Mariadb
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
